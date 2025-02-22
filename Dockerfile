@@ -1,26 +1,40 @@
-# Use official Node.js image as the base
-FROM node:20-alpine
+# Etapa 1: Construcción (Build Stage)
+FROM node:18-alpine AS build
 
-# Set the working directory in the container
+# Establece el directorio de trabajo en el contenedor
 WORKDIR /app
 
-# Copy the package.json and pnpm-lock.yaml to the container
-COPY package.json pnpm-lock.yaml ./
+# Copia el package.json y package-lock.json (o pnpm-lock.yaml si usas pnpm) 
+# para instalar las dependencias antes de copiar el resto del código, 
+# aprovechando el cache de Docker para acelerar la reconstrucción en futuros builds.
+COPY package*.json ./
 
-# Install pnpm globally
-RUN npm install -g pnpm
+# Instala las dependencias en la fase de construcción
+RUN npm install --legacy-peer-deps --frozen-lockfile 
 
-# Install the dependencies using pnpm
-RUN pnpm install --frozen-lockfile
-
-# Copy the rest of the application code to the container
+# Copia el resto del código fuente
 COPY . .
 
-# Build the Next.js application
-RUN pnpm build
+# Construye la aplicación Next.js
+RUN npm run build
 
-# Expose the port on which the app will run
+# Etapa 2: Producción (Production Stage)
+FROM node:18-alpine AS production
+
+# Establece el directorio de trabajo
+WORKDIR /app
+
+# Copia los archivos relevantes de la etapa de construcción
+COPY --from=build /app/package*.json ./
+
+# Copia la carpeta .next generada y los otros archivos necesarios para la producción
+COPY --from=build /app/.next ./
+
+# Instala solo las dependencias de producción
+RUN npm install --only=production --frozen-lockfile
+
+# Exponer el puerto en el que Next.js ejecuta la aplicación
 EXPOSE 3000
 
-# Command to start the Next.js app
-CMD ["pnpm", "start"]
+# Comando para ejecutar la aplicación en producción
+CMD ["npm", "start"]
