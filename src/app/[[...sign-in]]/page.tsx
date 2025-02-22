@@ -7,20 +7,23 @@ import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 
 export default  function SignInPage() {
-  const {  user } = useUser()
+  const { user } = useUser()
   const router = useRouter()
 
   useEffect(() => {
     const role = user?.publicMetadata.role
-    console.log(role)
-    if (role) {
+
+    if (role ==='admin') 
       router.push(`/${role}`)
-    }
+    else if (role === 'guest')
+      router.push('/list/parents')
+    else
+      router.push('/')
+
   }, [user, router])
 
-  
-  return (
-    <div className="grid w-full flex-grow items-center bg-zinc-100 px-4 sm:justify-center">
+    return (
+    <div className="h-screen grid w-full flex-grow items-center bg-zinc-100 px-4 sm:justify-center">
       <SignIn.Root>
         <SignIn.Step
           name="start"
@@ -34,7 +37,7 @@ export default  function SignInPage() {
           <Clerk.GlobalError className="block text-sm text-red-400" />
           <div className="space-y-4">
             <Clerk.Field name="identifier" className="space-y-2">
-              <Clerk.Label className="text-sm font-medium text-zinc-950">Username</Clerk.Label>
+              <Clerk.Label className="text-sm font-medium text-zinc-950">Usuario</Clerk.Label>
               <Clerk.Input
                 type="text"
                 required
@@ -56,7 +59,7 @@ export default  function SignInPage() {
             submit
             className="w-full rounded-md bg-zinc-950 px-3.5 py-1.5 text-center text-sm font-medium text-white shadow outline-none ring-1 ring-inset ring-zinc-950 hover:bg-zinc-800 focus-visible:outline-[1.5px] focus-visible:outline-offset-2 focus-visible:outline-zinc-950 active:text-white/70"
           >
-            Login
+            Acceder
           </SignIn.Action>
         </SignIn.Step>
       </SignIn.Root>

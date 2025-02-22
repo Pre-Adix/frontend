@@ -1,5 +1,5 @@
 
-// import FormModal from "@/components/customs/FormModal";
+import FormModal from "@/components/customs/FormModal";
 import Pagination from "@/components/customs/Pagination";
 import TableSearch from "@/components/customs/TableSearch";
 import TableView from "@/components/customs/TableView";
@@ -20,22 +20,22 @@ const columns = [
     accessor: "info",
   },
   {
-    header: "Student Names",
+    header: "Hijos",
     accessor: "students",
     className: "hidden md:table-cell",
   },
   {
-    header: "Phone",
+    header: "Celular",
     accessor: "phone",
     className: "hidden lg:table-cell",
   },
   {
-    header: "Address",
+    header: "Dirección",
     accessor: "address",
     className: "hidden lg:table-cell",
   },
   {
-    header: "Actions",
+    header: "Acciones",
     accessor: "action",
   },
 ];
@@ -59,8 +59,8 @@ const ParentListPage = () => {
         <div className="flex items-center gap-2">
           {role === "admin" && (
             <>
-              {/* <FormModal table="parent" type="update" data={item} />
-              <FormModal table="parent" type="delete" id={item.id} /> */}
+              <FormModal table="parent" type="update" data={item} />
+              <FormModal table="parent" type="delete" id={item.id} />
             </>
           )}
         </div>
@@ -82,9 +82,9 @@ const ParentListPage = () => {
             <button className="w-8 h-8 flex items-center justify-center rounded-full bg-userYellow">
               <img src="/sort.png" alt="" width={14} height={14} />
             </button>
-            {/* {role === "admin" && (
-              // <FormModal table="parent" type="create"/>
-            )} */}
+            {role === "admin" && (
+              <FormModal table="parent" type="create"/>
+            )}
           </div>
         </div>
       </div>

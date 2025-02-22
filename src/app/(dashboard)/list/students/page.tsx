@@ -1,4 +1,5 @@
 
+import FormModal from "@/components/customs/FormModal";
 import Pagination from "@/components/customs/Pagination";
 import TableSearch from "@/components/customs/TableSearch";
 import TableView from "@/components/customs/TableView";
@@ -23,27 +24,27 @@ const columns = [
     accessor: "info",
   },
   {
-    header: "Student ID",
+    header: "Código de Alumno",
     accessor: "studentId",
     className: "hidden md:table-cell",
   },
   {
-    header: "Grade",
+    header: "Ciclo",
     accessor: "grade",
     className: "hidden md:table-cell",
   },
   {
-    header: "Phone",
+    header: "Celular",
     accessor: "phone",
     className: "hidden lg:table-cell",
   },
   {
-    header: "Address",
+    header: "Dirección",
     accessor: "address",
     className: "hidden lg:table-cell",
   },
   {
-    header: "Actions",
+    header: "Acciones",
     accessor: "action",
   },
 ];
@@ -80,7 +81,7 @@ const StudentListPage = () => {
           </Link>
           {role === "admin" && (
             <>
-            {/* <FormModal table="student" type="delete" id={item.id}/> */}
+            <FormModal table="student" type="delete" id={item.id}/>
             </>
           )}
         </div>
@@ -104,7 +105,7 @@ const StudentListPage = () => {
             </button>
             {role === "admin" && (
               <>
-              {/* <FormModal table="student" type="create"/> */}
+              <FormModal table="student" type="create"/>
               </>
             )}
           </div>

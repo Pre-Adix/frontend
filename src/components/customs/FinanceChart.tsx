@@ -5,63 +5,63 @@ import WraperCards from './WraperCards';
 const data = [
   {
     name: "Ene",
-    income: 4000,
-    expense: 2400,
+    Ingresos: 4000,
+    Gastos: 2400,
   },
   {
     name: "Feb",
-    income: 3000,
-    expense: 1398,
+    Ingresos: 3000,
+    Gastos: 1398,
   },
   {
     name: "Mar",
-    income: 2000,
-    expense: 9800,
+    Ingresos: 2000,
+    Gastos: 9800,
   },
   {
     name: "Abr",
-    income: 2780,
-    expense: 3908,
+    Ingresos: 2780,
+    Gastos: 3908,
   },
   {
     name: "May",
-    income: 1890,
-    expense: 4800,
+    Ingresos: 1890,
+    Gastos: 4800,
   },
   {
     name: "Jun",
-    income: 2390,
-    expense: 3800,
+    Ingresos: 2390,
+    Gastos: 3800,
   },
   {
     name: "Jul",
-    income: 3490,
-    expense: 4300,
+    Ingresos: 3490,
+    Gastos: 4300,
   },
   {
     name: "Ago",
-    income: 3490,
-    expense: 4300,
+    Ingresos: 3490,
+    Gastos: 4300,
   },
   {
     name: "Sep",
-    income: 3490,
-    expense: 4300,
+    Ingresos: 3490,
+    Gastos: 4300,
   },
   {
     name: "Oct",
-    income: 3490,
-    expense: 4300,
+    Ingresos: 3490,
+    Gastos: 4300,
   },
   {
     name: "Nov",
-    income: 3490,
-    expense: 4300,
+    Ingresos: 3490,
+    Gastos: 4300,
   },
   {
     name: "Dic",
-    income: 3490,
-    expense: 4300,
+    Ingresos: 3490,
+    Gastos: 4300,
   },
 ];
 
@@ -90,8 +90,8 @@ const FinanceChart = () => {
             verticalAlign="top"
             wrapperStyle={{ paddingTop: "0.5rem", paddingBottom: "1rem" }}
           />
-          <Line type="monotone" dataKey="income" stroke="#8884d8" activeDot={{ r: 8 }} />
-          <Line type="monotone" dataKey="expense" stroke="#82ca9d" />
+          <Line type="monotone" dataKey="Ingresos" stroke="#8884d8" activeDot={{ r: 8 }} />
+          <Line type="monotone" dataKey="Gastos" stroke="#82ca9d" />
         </LineChart>
       </ResponsiveContainer>
       </WraperCards>

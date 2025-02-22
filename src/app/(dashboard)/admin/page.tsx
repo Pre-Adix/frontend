@@ -10,8 +10,8 @@ const AdminPage = () => {
         <article className="flex gap-4 justify-between flex-wrap">
           <UserCard type="Estudiante" />
           <UserCard type="Interesado" />
-          <UserCard type="Padres" />
-          <UserCard type="Profesores" />
+          <UserCard type="Ingresos" />
+          <UserCard type="Gastos" />
         </article>
         <article className="flex gap-4 flex-col lg:flex-row">
           <div className="w-full lg:w-1/3 h-[450px]">

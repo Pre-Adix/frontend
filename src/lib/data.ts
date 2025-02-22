@@ -127,25 +127,25 @@ export const studentsData = [
   {
     id: 1,
     studentId: "1234567890",
-    name: "John Doe",
-    email: "john@doe.com",
+    name: "Carlos sánchez",
+    email: "carlos.sanchez@email.com",
     photo:
       "https://images.pexels.com/photos/2888150/pexels-photo-2888150.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    grade: 5,
-    class: "1B",
-    address: "123 Main St, Anytown, USA",
+    grade: 'PREUNIVERSITARIO TRIMESTRAL',
+    class: "Medicina",
+    address: 'Av. Comas 456',
   },
   {
     id: 2,
     studentId: "1234567890",
-    name: "Jane Doe",
-    email: "jane@doe.com",
+    name: "Maria Gomez",
+    email: "maria.gomez@email.com",
     photo:
       "https://images.pexels.com/photos/936126/pexels-photo-936126.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    grade: 5,
-    class: "5A",
+    grade: 'PREUNIVERSITARIO TRIMESTRAL',
+    class: "Enfermería",
     address: "123 Main St, Anytown, USA",
   },
   {
@@ -156,8 +156,8 @@ export const studentsData = [
     photo:
       "https://images.pexels.com/photos/428328/pexels-photo-428328.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    grade: 5,
-    class: "5A",
+    grade: 'PREUNIVERSITARIO TRIMESTRAL',
+    class: "Medicina",
     address: "123 Main St, Anytown, USA",
   },
   {
@@ -168,8 +168,8 @@ export const studentsData = [
     photo:
       "https://images.pexels.com/photos/1187765/pexels-photo-1187765.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    grade: 5,
-    class: "5A",
+    grade: 'ESCOLAR FORMATIVO',
+    class: "Antropología",
     address: "123 Main St, Anytown, USA",
   },
   {
@@ -180,9 +180,9 @@ export const studentsData = [
     photo:
       "https://images.pexels.com/photos/1102341/pexels-photo-1102341.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    grade: 5,
-    class: "5A",
-    address: "123 Main St, Anytown, USA",
+    grade: 'ESCOLAR FORMATIVO',
+    class: "Educación Secundaria: Filosofía",
+    address: 'Calle San Borja 101',
   },
   {
     id: 6,
@@ -192,9 +192,9 @@ export const studentsData = [
     photo:
       "https://images.pexels.com/photos/712513/pexels-photo-712513.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    grade: 5,
-    class: "5A",
-    address: "123 Main St, Anytown, USA",
+    grade: 'PREUNIVERSITARIO TRIMESTRAL',
+    class: "Física",
+    address: 'Calle Los Olivos 789',
   },
   {
     id: 7,
@@ -204,9 +204,9 @@ export const studentsData = [
     photo:
       "https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    grade: 5,
-    class: "5A",
-    address: "123 Main St, Anytown, USA",
+    grade: 'REPASO',
+    class: "Zootecnia",
+    address: 'Av. Pardo 456',
   },
   {
     id: 8,
@@ -216,9 +216,9 @@ export const studentsData = [
     photo:
       "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    grade: 5,
-    class: "5A",
-    address: "123 Main St, Anytown, USA",
+    grade: 'PREQUINTO',
+    class: "Zootecnia",
+    address: 'Av. Javier Prado 123',
   },
   {
     id: 9,
@@ -228,8 +228,8 @@ export const studentsData = [
     photo:
       "https://images.pexels.com/photos/842980/pexels-photo-842980.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    grade: 5,
-    class: "5A",
+    grade: 'PREUNIVERSITARIO ANUAL',
+    class: "Antropología",
     address: "123 Main St, Anytown, USA",
   },
   {
@@ -240,8 +240,8 @@ export const studentsData = [
     photo:
       "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    grade: 5,
-    class: "5A",
+    grade: 'PREUNIVERSITARIO SEMESTRAL',
+    class: "Economía",
     address: "123 Main St, Anytown, USA",
   },
 ];

@@ -1,6 +1,5 @@
-import { metadata } from '@/app/layout'
 import { UserButton } from '@clerk/nextjs'
-import { auth, currentUser } from '@clerk/nextjs/server'
+import { currentUser } from '@clerk/nextjs/server'
 import Link from 'next/link'
 
 const Navbar = async () => {

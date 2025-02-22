@@ -5,28 +5,28 @@ import WraperCards from './WraperCards';
 const data = [
   {
     name: "Lun",
-    present: 60,
-    absent: 40,
+    Asisitió: 60,
+    Faltó: 40,
   },
   {
     name: "Mar",
-    present: 70,
-    absent: 60,
+    Asisitió: 70,
+    Faltó: 60,
   },
   {
     name: "Mie",
-    present: 90,
-    absent: 75,
+    Asisitió: 90,
+    Faltó: 75,
   },
   {
     name: "Jue",
-    present: 90,
-    absent: 75,
+    Asisitió: 90,
+    Faltó: 75,
   },
   {
     name: "Vie",
-    present: 65,
-    absent: 55,
+    Asisitió: 65,
+    Faltó: 55,
   },
 ];
 
@@ -50,8 +50,8 @@ const AttendanceChart = () => {
               verticalAlign="top"
               wrapperStyle={{ paddingTop: "10px", paddingBottom: "20px" }}
             />
-            <Bar dataKey="present" fill="#2DD2FF" legendType='circle' radius={[10, 10, 0, 0]} />
-            <Bar dataKey="absent" fill="#FFC229" legendType='circle' radius={[10, 10, 0, 0]} />
+            <Bar dataKey="Asisitió" fill="#2DD2FF" legendType='circle' radius={[10, 10, 0, 0]} />
+            <Bar dataKey="Faltó" fill="#FFC229" legendType='circle' radius={[10, 10, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </WraperCards>
