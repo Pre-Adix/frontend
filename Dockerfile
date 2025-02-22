@@ -1,38 +1,45 @@
-# Etapa 1: Construcción
+# Etapa 1: Construcción (build stage)
 FROM node:18-alpine AS builder
 
-# Establecer directorio de trabajo
+# Establecemos el directorio de trabajo
 WORKDIR /app
 
-# Instalar pnpm globalmente
+# Copiar los archivos package.json y pnpm-lock.yaml
+COPY package.json pnpm-lock.yaml ./
+
+# Instalamos pnpm de manera global
 RUN npm install -g pnpm
 
-# Copiar el archivo de configuración de dependencias
-COPY pnpm-lock.yaml ./
+# Instalar las dependencias con pnpm
+RUN pnpm install --frozen-lockfile
 
-# Instalar dependencias con pnpm (más rápido y eficiente)
-RUN pnpm install 
-
-# Copiar el resto del código fuente
+# Copiar el resto del código de la aplicación
 COPY . .
 
 # Construir la aplicación Next.js
-RUN pnpm run build
+RUN pnpm build
 
-# Etapa 2: Producción
-FROM node:18-alpine
+# Etapa 2: Producción (production stage)
+FROM node:18-alpine AS production
 
-# Establecer directorio de trabajo
+# Establecemos el directorio de trabajo
 WORKDIR /app
 
-# Instalar pnpm globalmente (en la etapa de producción)
+# Copiar el package.json y pnpm-lock.yaml del contenedor de construcción
+COPY package.json pnpm-lock.yaml ./
+
+# Instalamos pnpm globalmente también en la etapa de producción
 RUN npm install -g pnpm
 
-# Copiar solo los archivos necesarios desde la etapa de construcción
-COPY --from=builder /app/package.json /app/pnpm-lock.yaml /app/.next /app/public /app/node_modules /app/
+# Instalar solo las dependencias de producción
+RUN pnpm install --frozen-lockfile --prod
 
-# Exponer el puerto por defecto de Next.js
+# Copiar solo los archivos necesarios desde la etapa de construcción
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
+
+# Exponer el puerto en el que la app se ejecutará
 EXPOSE 3000
 
-# Comando para iniciar la aplicación en producción
+# Comando para iniciar la app
 CMD ["pnpm", "start"]
