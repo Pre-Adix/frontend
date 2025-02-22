@@ -4,42 +4,35 @@ FROM node:18-alpine AS builder
 # Establecer directorio de trabajo
 WORKDIR /app
 
-# Instalar PNPM globalmente
-RUN corepack enable && corepack prepare pnpm@latest --activate
+# Instalar pnpm globalmente
+RUN npm install -g pnpm
 
-# Copiar archivos necesarios
-COPY package.json pnpm-lock.yaml ./
+# Copiar el archivo de configuración de dependencias
+COPY pnpm-lock.yaml ./
 
-# Instalar dependencias
+# Instalar dependencias con pnpm (más rápido y eficiente)
 RUN pnpm install --frozen-lockfile
 
 # Copiar el resto del código fuente
 COPY . .
 
 # Construir la aplicación Next.js
-RUN pnpm build
-
-# Eliminar dependencias de desarrollo
-RUN pnpm prune --prod
+RUN pnpm run build
 
 # Etapa 2: Producción
 FROM node:18-alpine
 
-# Establecer un usuario no root por seguridad
-RUN addgroup --system app && adduser --system --group app
-USER app
-
 # Establecer directorio de trabajo
 WORKDIR /app
 
-# Copiar archivos desde la etapa de construcción
-COPY --from=builder --chown=app:app /app/package.json ./
-COPY --from=builder --chown=app:app /app/.next .next
-COPY --from=builder --chown=app:app /app/public public
-COPY --from=builder --chown=app:app /app/node_modules node_modules
+# Instalar pnpm globalmente (en la etapa de producción)
+RUN npm install -g pnpm
 
-# Exponer el puerto que usa Railway
+# Copiar solo los archivos necesarios desde la etapa de construcción
+COPY --from=builder /app/package.json /app/pnpm-lock.yaml /app/.next /app/public /app/node_modules /app/
+
+# Exponer el puerto por defecto de Next.js
 EXPOSE 3000
 
-# Comando para iniciar la app
+# Comando para iniciar la aplicación en producción
 CMD ["pnpm", "start"]
