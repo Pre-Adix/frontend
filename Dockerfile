@@ -11,7 +11,7 @@ RUN npm install -g pnpm
 COPY pnpm-lock.yaml ./
 
 # Instalar dependencias con pnpm (más rápido y eficiente)
-RUN pnpm install --frozen-lockfile
+RUN pnpm install 
 
 # Copiar el resto del código fuente
 COPY . .
