@@ -30,7 +30,7 @@ const MENU_ITEMS = [
       {
         icon: "/subject.png",
         label: "Matrícula",
-        href: "/list/subjects",
+        href: "/list/enrollments",
         visible: ["admin"],
       },
       {
